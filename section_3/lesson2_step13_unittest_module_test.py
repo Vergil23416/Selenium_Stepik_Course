@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from faker import Faker
-import time, unittest
+import time, unittest, pytest
 
 
 fake = Faker("ru_RU")
