@@ -24,12 +24,19 @@ def prepare_data():
 
 
 class TestMainPage1:
+    # Маркировка для конкретного вызова
+    @pytest.mark.smoke
+    @pytest.mark.skip  # Пропуск теста
     def test_guest_should_see_login_link(self, browser):
         print("start test1")
         browser.get(link)
         browser.find_element(By.CSS_SELECTOR, "#login_link")
         print("finish test1")
 
+    # Две маркировки, относящиеся к одному тесту
+    @pytest.mark.regression
+    @pytest.mark.win10
+    @pytest.mark.xfail  # Падающий тест после изменения
     def test_guest_should_see_basket_link_on_the_main_page(self, browser):
         print("start test2")
         browser.get(link)
