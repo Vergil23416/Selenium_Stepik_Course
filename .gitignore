@@ -1,3 +1,4 @@
 # Игнорирование окружения
 .idea/
 selenium_env/
+config.json
