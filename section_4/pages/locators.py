@@ -14,3 +14,9 @@ class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     CURRENT_LINK_SUFFIX = "accounts/login/"
+
+
+class ProductPageLocators:
+    BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+    NAME_PRODUCT = (By.CSS_SELECTOR, "div.product_main > h1")
+    PRICE_PRODUCT = (By.CSS_SELECTOR, "div.product_main p.price_color")
