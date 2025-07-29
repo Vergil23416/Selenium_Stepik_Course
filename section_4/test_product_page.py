@@ -3,6 +3,34 @@ import time
 import pytest
 from pages.basket_page import BasketPage
 from pages.product_page import ProductPage
+from pages.login_page import LoginPage
+
+
+class TestUserAddToBasketFromProductPage:
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
+        link = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+        login_page = LoginPage(browser, link)
+        login_page.open()
+        email = str(time.time()) + "@fakemail.org"
+        login_page.register_new_user(email, "asdasdasdasd")
+        login_page.should_be_authorized_user()
+
+    def test_user_can_add_product_to_basket(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
+        browser.delete_all_cookies()  # Для очистки куков, чтобы корзина очищалась и цена не суммировалась для одной сессии браузера
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.add_product_to_basket()
+        product_page.solve_quiz_and_get_code()
+        product_page.should_be_success_message_with_product_name()
+        product_page.should_be_message_basket_price_equal_price_product()
+
+    def test_user_cant_see_success_message(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1"
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.should_not_be_success_message()
 
 
 @pytest.mark.parametrize(

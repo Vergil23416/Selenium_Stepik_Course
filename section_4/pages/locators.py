@@ -11,6 +11,7 @@ class LoginPageLocators:
     REGISTER_EMAIL = (By.CSS_SELECTOR, "#id_registration-email")
     REGISTER_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password1")
     REGISTER_RETURN_PASSWORD = (By.CSS_SELECTOR, "#id_registration-password2")
+    REGISTER_BUTTON_SUBMIT = (By.CSS_SELECTOR, "[name='registration_submit']")
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     CURRENT_LINK_SUFFIX = "accounts/login/"
@@ -29,6 +30,7 @@ class BasePageLocators:
         By.CSS_SELECTOR,
         "div.basket-mini > span.btn-group > a.btn-default",
     )
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class BasketPageLocators:
