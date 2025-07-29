@@ -20,3 +20,17 @@ class ProductPageLocators:
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, "button.btn-add-to-basket")
     NAME_PRODUCT = (By.CSS_SELECTOR, "div.product_main > h1")
     PRICE_PRODUCT = (By.CSS_SELECTOR, "div.product_main p.price_color")
+
+
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BUTTON_GO_TO_BASKET = (
+        By.CSS_SELECTOR,
+        "div.basket-mini > span.btn-group > a.btn-default",
+    )
+
+
+class BasketPageLocators:
+    MESSAGE_BASKET_IS_EMPTY = (By.CSS_SELECTOR, "#content_inner > p")
+    BASKET_ITEMS = (By.CSS_SELECTOR, "div.basket-items")

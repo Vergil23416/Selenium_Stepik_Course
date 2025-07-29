@@ -28,3 +28,13 @@ class ProductPage(BasePage):
             *ProductPageLocators.PRICE_PRODUCT
         ).text
         assert actual_price == extended_price, "Цена не совпадает"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            By.CSS_SELECTOR, "div.alertinner strong"
+        ), "Подтверждающее сообщение появилось"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(
+            By.CSS_SELECTOR, "div.alertinner strong"
+        ), "Подтверждающее сообщение не пропало"
